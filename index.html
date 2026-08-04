@@ -8,7 +8,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@800;900&family=Noto+Nastaliq+Urdu:wght@700&family=Playfair+Display:ital,wght@0,700;0,900;1,600&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@800;900&family=Noto+Nastaliq+Urdu:wght@600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,600&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Canvas Confetti Library -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -18,7 +18,7 @@
 
   <style>
     /* ================================================================
-       DREAMY CELESTIAL DESIGN SYSTEM — AUTO-RESPONSIVE & ZERO OVERFLOW
+       DREAMY CELESTIAL DESIGN SYSTEM — SPACIOUS, BOLD & MULTI-THEMED
        ================================================================ */
     :root {
       --bg-dark: #03050e;
@@ -47,44 +47,67 @@
       margin: 0;
       padding: 0;
       background-color: var(--bg-dark);
-      color: #f1f5f9;
+      color: #f8fafc;
       font-family: var(--font-sans);
       user-select: none;
       touch-action: manipulation;
     }
 
     /* Distinct Theme Backdrops for Every Single Page */
+    /* Step 0: Midnight Sapphire & Rose Aurora */
     body[data-theme="0"] { 
       background: radial-gradient(circle at 15% 20%, #2b0826 0%, #080314 50%, #03050e 100%);
       --aurora-1: rgba(255, 117, 160, 0.45); --aurora-2: rgba(217, 128, 250, 0.4);
+      color: #f8fafc;
     }
+
+    /* Step 1: Dreamy White & Gold Pearl Theme (LIGHT THEME) */
     body[data-theme="1"] { 
-      background: radial-gradient(circle at 80% 20%, #032b30 0%, #02121c 55%, #03050e 100%);
-      --aurora-1: rgba(79, 214, 224, 0.5); --aurora-2: rgba(246, 196, 83, 0.45);
+      background: radial-gradient(circle at 50% 30%, #ffffff 0%, #f1f5f9 55%, #e2e8f0 100%);
+      --aurora-1: rgba(246, 196, 83, 0.35); --aurora-2: rgba(79, 214, 224, 0.25);
+      color: #0f172a;
     }
+
+    /* Step 2: Sunset Crimson & Amber Glow */
     body[data-theme="2"] { 
       background: radial-gradient(circle at 50% 80%, #3a1c03 0%, #170701 55%, #03050e 100%);
       --aurora-1: rgba(255, 170, 91, 0.45); --aurora-2: rgba(255, 117, 160, 0.4);
+      color: #f8fafc;
     }
+
+    /* Step 3: Dreamy White & Lavender Silk Theme (LIGHT THEME) */
     body[data-theme="3"] { 
-      background: radial-gradient(circle at 20% 80%, #210436 0%, #0e0221 55%, #03050e 100%);
-      --aurora-1: rgba(126, 240, 228, 0.45); --aurora-2: rgba(217, 128, 250, 0.45);
+      background: radial-gradient(circle at 20% 80%, #faf5ff 0%, #f3e8ff 55%, #e9d5ff 100%);
+      --aurora-1: rgba(217, 128, 250, 0.35); --aurora-2: rgba(126, 240, 228, 0.3);
+      color: #1e1b4b;
     }
+
+    /* Step 4: Memory Vault (Royal Indigo & Gold) */
     body[data-theme="4"] { 
       background: radial-gradient(circle at 80% 80%, #022d22 0%, #01140e 55%, #03050e 100%);
       --aurora-1: rgba(246, 196, 83, 0.45); --aurora-2: rgba(79, 214, 224, 0.45);
+      color: #f8fafc;
     }
+
+    /* Step 5: Journey of Us (Vintage Rose & Gold) */
     body[data-theme="5"] { 
       background: radial-gradient(circle at 50% 20%, #38021b 0%, #1a010d 55%, #03050e 100%);
       --aurora-1: rgba(255, 117, 160, 0.5); --aurora-2: rgba(246, 196, 83, 0.4);
+      color: #f8fafc;
     }
+
+    /* Step 6: Velvet Midnight & Golden Parchment */
     body[data-theme="6"] { 
       background: radial-gradient(circle at 10% 50%, #280336 0%, #0d0117 55%, #03050e 100%);
       --aurora-1: rgba(217, 128, 250, 0.5); --aurora-2: rgba(79, 214, 224, 0.4);
+      color: #f8fafc;
     }
+
+    /* Step 7: Grand Celebration & Cake Cut */
     body[data-theme="7"] { 
       background: radial-gradient(circle at 50% 50%, #3b2003 0%, #1f0b01 50%, #03050e 100%);
       --aurora-1: rgba(246, 196, 83, 0.55); --aurora-2: rgba(255, 117, 160, 0.5);
+      color: #f8fafc;
     }
 
     /* Custom Scrollbars */
@@ -168,9 +191,21 @@
       -webkit-text-fill-color: transparent;
     }
 
+    body[data-theme="1"] .text-dreamy, body[data-theme="3"] .text-dreamy {
+      background: linear-gradient(135deg, #0f172a 0%, #2563eb 50%, #7c3aed 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
     .text-gold {
       font-family: var(--font-display);
       background: linear-gradient(135deg, #fff6c5 0%, var(--color-gold) 50%, #d49520 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    body[data-theme="1"] .text-gold, body[data-theme="3"] .text-gold {
+      background: linear-gradient(135deg, #b45309 0%, #d97706 50%, #78350f 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -185,14 +220,14 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 0.5rem 0 1.5rem 0;
+      margin: 1rem 0 2rem 0;
       overflow: visible;
     }
 
     .huge-age-number-v3 {
       font-family: var(--font-num);
       font-weight: 900;
-      font-size: clamp(5.5rem, 21vw, 12.5rem);
+      font-size: clamp(6rem, 23vw, 13.5rem);
       line-height: 0.95;
       letter-spacing: -0.02em;
       background: linear-gradient(145deg, #ffffff 0%, var(--color-primary-glow) 30%, var(--color-gold) 65%, var(--color-rose) 100%);
@@ -204,13 +239,30 @@
       white-space: nowrap;
     }
 
-    /* Glass Panels */
+    body[data-theme="1"] .huge-age-number-v3 {
+      background: linear-gradient(145deg, #0f172a 0%, #2563eb 30%, #d97706 65%, #c026d3 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 12px 25px rgba(217, 119, 6, 0.35));
+    }
+
+    /* Glass Panels for Dark Themes */
     .glass-panel {
       background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
       backdrop-filter: blur(28px);
       -webkit-backdrop-filter: blur(28px);
       border: 1px solid rgba(255, 255, 255, 0.16);
       box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    }
+
+    /* Glass Panels for Light White Themes */
+    body[data-theme="1"] .glass-panel, body[data-theme="3"] .glass-panel {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(241, 245, 249, 0.65) 100%);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid rgba(203, 213, 225, 0.8);
+      box-shadow: 0 25px 50px rgba(148, 163, 184, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      color: #0f172a;
     }
 
     .glass-card-hover {
@@ -224,14 +276,26 @@
       box-shadow: 0 20px 45px rgba(79, 214, 224, 0.35);
     }
 
+    body[data-theme="3"] .glass-card-hover:hover {
+      background: linear-gradient(135deg, #ffffff 0%, #f3e8ff 100%);
+      border-color: #a855f7;
+      box-shadow: 0 20px 45px rgba(168, 85, 247, 0.3);
+    }
+
     /* Water-Bubble Glossy Voice Message Card */
     .voice-bubble-card {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.14) 0%, rgba(79, 214, 224, 0.08) 50%, rgba(217, 128, 250, 0.14) 100%);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(79, 214, 224, 0.08) 50%, rgba(217, 128, 250, 0.15) 100%);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid rgba(255, 255, 255, 0.25);
       box-shadow: 0 12px 30px rgba(79, 214, 224, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.4);
       transition: all 0.4s ease;
+    }
+
+    body[data-theme="1"] .voice-bubble-card, body[data-theme="3"] .voice-bubble-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(224, 242, 254, 0.8) 100%);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      box-shadow: 0 12px 25px rgba(148, 163, 184, 0.25);
     }
 
     /* Animated Wave Equalizer Bars */
@@ -261,7 +325,7 @@
       font-weight: 800;
       letter-spacing: 0.05em;
       border-radius: 9999px;
-      padding: 0.95rem 2.4rem;
+      padding: 1.05rem 2.6rem;
       transition: all 0.5s ease;
       box-shadow: 0 0 30px rgba(79, 214, 224, 0.5);
       overflow: hidden;
@@ -287,11 +351,11 @@
     /* TYPEWRITER TEXT CONTAINMENT */
     .typewriter-glass-box {
       width: 100%;
-      max-width: 640px;
-      min-height: 170px;
+      max-width: 660px;
+      min-height: 180px;
       height: auto;
-      margin: 0 auto 1.75rem auto;
-      padding: 1.5rem 1.25rem;
+      margin: 0 auto 2rem auto;
+      padding: 1.75rem 1.5rem;
       border-radius: 1.75rem;
       display: flex;
       align-items: center;
@@ -305,7 +369,7 @@
       word-break: break-word;
       overflow-wrap: anywhere;
       white-space: normal;
-      line-height: 1.45;
+      line-height: 1.5;
     }
 
     /* REALISTIC BIRTHDAY CAKE WITH MALAI DRIPS & CANDLES */
@@ -530,6 +594,7 @@
       transition: all 0.5s ease;
       position: relative;
       overflow: hidden;
+      cursor: pointer;
     }
     @media (min-width: 640px) { .memory-card { flex: 0 0 290px; } }
 
@@ -557,8 +622,43 @@
       box-shadow: 0 25px 50px rgba(0,0,0,0.55);
       transform: rotate(-3deg);
       transition: all 0.5s ease;
+      cursor: pointer;
     }
     .polaroid-frame:hover { transform: rotate(0deg) scale(1.04); }
+
+    /* Lightbox Modal (Photo Open & Back System) */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(4, 6, 16, 0.92);
+      backdrop-filter: blur(25px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .lightbox-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-content {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 30px 70px rgba(0,0,0,0.8), 0 0 50px rgba(79, 214, 224, 0.4);
+      transform: scale(0.85);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .lightbox-modal.active .lightbox-content {
+      transform: scale(1);
+    }
 
     /* Marquee Ribbon */
     .marquee-track {
@@ -579,7 +679,9 @@
       to { transform: translateX(-50%); }
     }
 
-    /* PER-PAGE UNIQUE SLOW & DREAMY ENTRANCE ANIMATIONS (2.2s DURATIONS) */
+    /* ================================================================
+       PER-PAGE UNIQUE SLOW & DREAMY ENTRANCE ANIMATIONS (2.2s DURATIONS)
+       ================================================================ */
     .step-content {
       display: none;
       opacity: 0;
@@ -674,10 +776,10 @@
 
       <!-- Audio Controls -->
       <div class="flex items-center gap-2">
-        <button onclick="playUrduVoiceGreeting()" title="Replay Voice Wish" class="flex items-center gap-1 text-[11px] bg-teal-500/20 hover:bg-teal-500/30 px-2.5 py-1 rounded-full text-teal-300 transition border border-teal-400/30">
+        <button onclick="playUrduVoiceGreeting()" title="Replay Voice Wish" class="flex items-center gap-1 text-[11px] bg-teal-500/20 hover:bg-teal-500/30 px-2.5 py-1 rounded-full text-teal-300 transition border border-teal-400/30 font-semibold">
           🗣️ <span id="voice-btn-label">Voice Wish</span>
         </button>
-        <button onclick="toggleAudioFx()" id="audio-btn" class="flex items-center gap-1 text-[11px] bg-white/10 hover:bg-white/20 px-2.5 py-1 rounded-full text-slate-200 transition border border-white/10">
+        <button onclick="toggleAudioFx()" id="audio-btn" class="flex items-center gap-1 text-[11px] bg-white/10 hover:bg-white/20 px-2.5 py-1 rounded-full text-slate-200 transition border border-white/10 font-semibold">
           <span id="audio-icon">🎶</span>
           <span id="audio-text" class="hidden sm:inline">Music: ON</span>
         </button>
@@ -687,29 +789,29 @@
   </header>
 
   <!-- MAIN EXPERIENCE CONTAINER -->
-  <main class="relative z-10 min-h-screen flex items-center justify-center px-3 sm:px-4 py-24 max-w-4xl mx-auto text-center w-full overflow-hidden">
+  <main class="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 py-28 max-w-4xl mx-auto text-center w-full overflow-hidden">
 
     <!-- ================= STEP 0: WELCOME ================= -->
     <section class="step-content active w-full" id="step-0">
-      <div class="inline-block mb-3 text-6xl sm:text-7xl animate-bounce">🌙</div>
-      <p class="text-[10px] sm:text-xs uppercase tracking-[0.35em] text-teal-300/90 mb-2 font-semibold">A Bespoke Celestial Experience</p>
-      <h1 class="text-3xl sm:text-6xl font-black text-dreamy mb-2 leading-tight font-display">
+      <div class="inline-block mb-4 text-6xl sm:text-7xl animate-bounce">🌙</div>
+      <p class="text-[10px] sm:text-xs uppercase tracking-[0.35em] text-teal-300 mb-3 font-bold">A Bespoke Celestial Experience</p>
+      <h1 class="text-4xl sm:text-6xl font-black text-dreamy mb-3 leading-tight font-display">
         Hello, Dearest <br><span class="text-gold text-script text-5xl sm:text-7xl font-normal dynamic-name-text">Fahad</span>
       </h1>
-      <p class="text-xs sm:text-sm text-pink-300/90 font-urdu mb-4 font-bold">
-        ہیپی برتھ ڈے پیارے فہد! ✨
+      <p class="text-sm sm:text-base text-pink-300 font-urdu mb-6 font-bold leading-relaxed">
+        ہمیہش مسکراتے رہو پیارے فہد! ✨
       </p>
-      <p class="text-slate-300/90 text-sm sm:text-base leading-relaxed max-w-md mx-auto mb-6 font-light">
+      <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-md mx-auto mb-8 font-medium">
         Between the quiet stars and night sky, I created a magical universe—filled with light, memories, balloons, and everything my heart wanted to say to you today.
       </p>
 
       <!-- Voice Message Card Bubble (Step 0) -->
-      <div class="voice-bubble-card rounded-2xl p-3 max-w-[280px] sm:max-w-[320px] mx-auto mb-6">
-        <div class="text-[10px] text-pink-300 font-bold uppercase tracking-widest mb-1.5 flex items-center justify-center gap-1">
+      <div class="voice-bubble-card rounded-2xl p-3.5 max-w-[290px] sm:max-w-[330px] mx-auto mb-8">
+        <div class="text-[10px] text-pink-300 font-bold uppercase tracking-widest mb-2 flex items-center justify-center gap-1">
           <span>This is For You ✨</span>
         </div>
         <div class="flex items-center justify-between gap-2 px-1">
-          <button onclick="toggleVoicePlayer(0)" id="voice-btn-0" class="w-9 h-9 rounded-full bg-gradient-to-r from-teal-400 to-pink-500 text-slate-900 flex items-center justify-center font-bold shadow-md hover:scale-105 active:scale-95 transition">
+          <button onclick="toggleVoicePlayer(0)" id="voice-btn-0" class="w-10 h-10 rounded-full bg-gradient-to-r from-teal-400 to-pink-500 text-slate-900 flex items-center justify-center font-bold shadow-md hover:scale-105 active:scale-95 transition">
             <span id="voice-icon-0">▶</span>
           </button>
           <div class="flex items-center gap-1 h-5 flex-1 justify-center" id="wave-bars-0">
@@ -720,7 +822,7 @@
             <span class="wave-bar h-4 w-1 bg-teal-300 rounded-full"></span>
             <span class="wave-bar h-2 w-1 bg-pink-400 rounded-full"></span>
           </div>
-          <span class="text-[10px] text-slate-300 font-mono" id="voice-time-0">00:00</span>
+          <span class="text-[10px] text-slate-300 font-mono font-bold" id="voice-time-0">00:00</span>
         </div>
       </div>
 
@@ -730,39 +832,39 @@
       </button>
     </section>
 
-    <!-- ================= STEP 1: THE AGE 26 NUMBER ================= -->
+    <!-- ================= STEP 1: THE AGE 26 NUMBER (WHITE PEARL THEME) ================= -->
     <section class="step-content w-full" id="step-1">
-      <p class="text-[10px] sm:text-xs uppercase tracking-[0.35em] text-teal-300/90 mb-4 font-semibold">Today You Turn</p>
+      <p class="text-[10px] sm:text-xs uppercase tracking-[0.35em] text-amber-600 mb-4 font-bold">Today You Turn</p>
       
       <div class="age-number-container">
         <span id="age-counter" class="huge-age-number-v3">26</span>
       </div>
 
-      <h2 class="text-2xl sm:text-4xl font-bold text-gold mb-3 font-display">
+      <h2 class="text-2xl sm:text-4xl font-black text-slate-900 mb-3 font-display">
         26 Golden Years Of Grace
       </h2>
-      <p class="text-slate-300 text-sm sm:text-base max-w-md mx-auto mb-6 font-light leading-relaxed">
-        <strong class="text-teal-300 font-semibold dynamic-name-text">Fahad</strong>, 26 trips around the sun! The world has been a softer, brighter, and infinitely more beautiful place ever since you arrived.
+      <p class="text-slate-700 text-sm sm:text-base max-w-md mx-auto mb-8 font-semibold leading-relaxed">
+        <strong class="text-indigo-600 font-bold dynamic-name-text">Fahad</strong>, 26 trips around the sun! The world has been a softer, brighter, and infinitely more beautiful place ever since you arrived.
       </p>
 
       <!-- Voice Message Card Bubble (Step 1) -->
-      <div class="voice-bubble-card rounded-2xl p-3 max-w-[280px] sm:max-w-[320px] mx-auto mb-6">
-        <div class="text-[10px] text-pink-300 font-bold uppercase tracking-widest mb-1.5 flex items-center justify-center gap-1">
+      <div class="voice-bubble-card rounded-2xl p-3.5 max-w-[290px] sm:max-w-[330px] mx-auto mb-8">
+        <div class="text-[10px] text-purple-700 font-bold uppercase tracking-widest mb-2 flex items-center justify-center gap-1">
           <span>This is For You ✨</span>
         </div>
         <div class="flex items-center justify-between gap-2 px-1">
-          <button onclick="toggleVoicePlayer(1)" id="voice-btn-1" class="w-9 h-9 rounded-full bg-gradient-to-r from-teal-400 to-pink-500 text-slate-900 flex items-center justify-center font-bold shadow-md hover:scale-105 active:scale-95 transition">
+          <button onclick="toggleVoicePlayer(1)" id="voice-btn-1" class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-indigo-600 text-white flex items-center justify-center font-bold shadow-md hover:scale-105 active:scale-95 transition">
             <span id="voice-icon-1">▶</span>
           </button>
           <div class="flex items-center gap-1 h-5 flex-1 justify-center" id="wave-bars-1">
-            <span class="wave-bar h-2 w-1 bg-teal-300 rounded-full"></span>
-            <span class="wave-bar h-4 w-1 bg-pink-400 rounded-full"></span>
-            <span class="wave-bar h-5 w-1 bg-yellow-300 rounded-full"></span>
-            <span class="wave-bar h-3 w-1 bg-purple-400 rounded-full"></span>
-            <span class="wave-bar h-4 w-1 bg-teal-300 rounded-full"></span>
-            <span class="wave-bar h-2 w-1 bg-pink-400 rounded-full"></span>
+            <span class="wave-bar h-2 w-1 bg-indigo-500 rounded-full"></span>
+            <span class="wave-bar h-4 w-1 bg-purple-500 rounded-full"></span>
+            <span class="wave-bar h-5 w-1 bg-amber-500 rounded-full"></span>
+            <span class="wave-bar h-3 w-1 bg-indigo-500 rounded-full"></span>
+            <span class="wave-bar h-4 w-1 bg-purple-500 rounded-full"></span>
+            <span class="wave-bar h-2 w-1 bg-amber-500 rounded-full"></span>
           </div>
-          <span class="text-[10px] text-slate-300 font-mono" id="voice-time-1">00:00</span>
+          <span class="text-[10px] text-slate-700 font-mono font-bold" id="voice-time-1">00:00</span>
         </div>
       </div>
 
@@ -772,31 +874,35 @@
       </button>
     </section>
 
-    <!-- ================= STEP 2: THE WISH ================= -->
+    <!-- ================= STEP 2: THE WISH (URDU & ROMANTIC DUAYEIN) ================= -->
     <section class="step-content w-full" id="step-2">
       <div class="text-6xl mb-3 animate-pulse">🎈</div>
       <h2 class="text-2xl sm:text-4xl font-bold text-dreamy mb-2 font-display">
         Happy Birthday, <span class="dynamic-name-text">Fahad</span>!
       </h2>
-      <p class="text-script text-2xl sm:text-4xl text-gold mb-4">
+      <p class="text-script text-2xl sm:text-4xl text-gold mb-5">
         you are my favourite kind of light ✨
       </p>
-      <div class="glass-panel rounded-2xl p-6 sm:p-8 mb-6 text-left space-y-3 text-slate-200 border-amber-500/20 shadow-2xl max-w-lg mx-auto text-sm sm:text-base">
-        <p class="leading-relaxed">
-          Dearest <span class="dynamic-name-text">Fahad</span>, another year older, another year even more radiant.
+
+      <div class="glass-panel rounded-2xl p-6 sm:p-8 mb-8 text-left space-y-4 text-slate-100 border-amber-500/25 shadow-2xl max-w-lg mx-auto text-sm sm:text-base font-medium">
+        <p class="text-pink-300 font-urdu text-lg leading-relaxed text-center font-bold">
+          "تم میری زندگی کی سب سے خوبصورت دعا ہو..."
         </p>
         <p class="leading-relaxed">
-          May your 26th year be filled with pure serenity, sudden bursts of laughter, cozy coffee mornings, and dreams that unfold even better than you imagined.
+          Dearest <span class="dynamic-name-text font-bold text-teal-300">Fahad</span>, may every day of your 26th year be blessed with health, peace, endless laughter, and success in everything you touch.
+        </p>
+        <p class="text-yellow-300 leading-relaxed font-semibold">
+          Allah tumhein dunya aur aakhirat ki tamaam khushiyan aur sukoon ata farmaye, Aameen! 🤲
         </p>
       </div>
 
       <!-- Voice Message Card Bubble (Step 2) -->
-      <div class="voice-bubble-card rounded-2xl p-3 max-w-[280px] sm:max-w-[320px] mx-auto mb-6">
-        <div class="text-[10px] text-pink-300 font-bold uppercase tracking-widest mb-1.5 flex items-center justify-center gap-1">
+      <div class="voice-bubble-card rounded-2xl p-3.5 max-w-[290px] sm:max-w-[330px] mx-auto mb-8">
+        <div class="text-[10px] text-pink-300 font-bold uppercase tracking-widest mb-2 flex items-center justify-center gap-1">
           <span>This is For You ✨</span>
         </div>
         <div class="flex items-center justify-between gap-2 px-1">
-          <button onclick="toggleVoicePlayer(2)" id="voice-btn-2" class="w-9 h-9 rounded-full bg-gradient-to-r from-teal-400 to-pink-500 text-slate-900 flex items-center justify-center font-bold shadow-md hover:scale-105 active:scale-95 transition">
+          <button onclick="toggleVoicePlayer(2)" id="voice-btn-2" class="w-10 h-10 rounded-full bg-gradient-to-r from-teal-400 to-pink-500 text-slate-900 flex items-center justify-center font-bold shadow-md hover:scale-105 active:scale-95 transition">
             <span id="voice-icon-2">▶</span>
           </button>
           <div class="flex items-center gap-1 h-5 flex-1 justify-center" id="wave-bars-2">
@@ -807,7 +913,7 @@
             <span class="wave-bar h-4 w-1 bg-teal-300 rounded-full"></span>
             <span class="wave-bar h-2 w-1 bg-pink-400 rounded-full"></span>
           </div>
-          <span class="text-[10px] text-slate-300 font-mono" id="voice-time-2">00:00</span>
+          <span class="text-[10px] text-slate-300 font-mono font-bold" id="voice-time-2">00:00</span>
         </div>
       </div>
 
@@ -817,65 +923,65 @@
       </button>
     </section>
 
-    <!-- ================= STEP 3: REASONS I ADORE YOU ================= -->
+    <!-- ================= STEP 3: REASONS I ADORE YOU (WHITE LAVENDER THEME) ================= -->
     <section class="step-content w-full" id="step-3">
-      <p class="text-[10px] sm:text-xs uppercase tracking-[0.35em] text-teal-300/90 mb-2 font-semibold">A Million Little Reasons</p>
-      <h2 class="text-2xl sm:text-4xl font-bold text-dreamy mb-6 font-display">
+      <p class="text-[10px] sm:text-xs uppercase tracking-[0.35em] text-purple-700 mb-2 font-extrabold">A Million Little Reasons</p>
+      <h2 class="text-2xl sm:text-4xl font-black text-slate-900 mb-7 font-display">
         Reasons I Adore You, <span class="dynamic-name-text">Fahad</span>
       </h2>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-6 max-w-2xl mx-auto">
-        <div class="glass-panel glass-card-hover rounded-xl p-5 border-l-4 border-l-teal-400">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 text-left mb-8 max-w-2xl mx-auto">
+        <div class="glass-panel glass-card-hover rounded-xl p-5 border-l-4 border-l-teal-500">
           <div class="text-3xl mb-2">🌊</div>
-          <h3 class="text-lg font-bold text-teal-300 mb-1 font-display">Your Ocean Calm Heart</h3>
-          <p class="text-xs sm:text-sm text-slate-300/90 leading-relaxed">
-            No matter how loud or chaotic the world gets, being near you feels like returning to peaceful shores.
+          <h3 class="text-lg font-bold text-teal-800 mb-1 font-display">Tumhara Narm Dil</h3>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+            Jahan sab se zyada sukoon milta hai, tumhari baatein aur tumhara sath hamesha dil ko shanti deta hai.
           </p>
         </div>
 
-        <div class="glass-panel glass-card-hover rounded-xl p-5 border-l-4 border-l-yellow-400">
+        <div class="glass-panel glass-card-hover rounded-xl p-5 border-l-4 border-l-amber-500">
           <div class="text-3xl mb-2">✨</div>
-          <h3 class="text-lg font-bold text-yellow-300 mb-1 font-display">Your Golden Smile</h3>
-          <p class="text-xs sm:text-sm text-slate-300/90 leading-relaxed">
-            Your laugh comes like sunlight through a window, instantly brightening up my entire universe.
+          <h3 class="text-lg font-bold text-amber-800 mb-1 font-display">Tumhari Pyari Muskaan</h3>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+            Tumhari hansi dhoop ki tarah aati hai aur meri har pareshani ko ek pal mein mita deti hai.
           </p>
         </div>
 
-        <div class="glass-panel glass-card-hover rounded-xl p-5 border-l-4 border-l-purple-400">
+        <div class="glass-panel glass-card-hover rounded-xl p-5 border-l-4 border-l-purple-600">
           <div class="text-3xl mb-2">🌌</div>
-          <h3 class="text-lg font-bold text-purple-300 mb-1 font-display">Your Kind Soul</h3>
-          <p class="text-xs sm:text-sm text-slate-300/90 leading-relaxed">
-            You notice details no one else sees, treating everyone with gentle care, empathy, and warmth.
+          <h3 class="text-lg font-bold text-purple-900 mb-1 font-display">Hamesha Sath Chalne Ka Wada</h3>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+            Dunya chahe kitni bhi badal jaye, mera haath hamesha tumhare haath mein hoga.
           </p>
         </div>
 
-        <div class="glass-panel glass-card-hover rounded-xl p-5 border-l-4 border-l-pink-400">
+        <div class="glass-panel glass-card-hover rounded-xl p-5 border-l-4 border-l-pink-500">
           <div class="text-3xl mb-2">🕊️</div>
-          <h3 class="text-lg font-bold text-pink-300 mb-1 font-display">Your Quiet Strength</h3>
-          <p class="text-xs sm:text-sm text-slate-300/90 leading-relaxed">
-            You handle life with grace, kindness, and unbelievable strength. I admire you so very much.
+          <h3 class="text-lg font-bold text-pink-800 mb-1 font-display">Dua aur Pyar</h3>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+            Allah tumhein hamesha salamat rakhe aur tumhare chehre ki muskaan kabhi kam na hone de, Aameen.
           </p>
         </div>
       </div>
 
       <!-- Voice Message Card Bubble (Step 3) -->
-      <div class="voice-bubble-card rounded-2xl p-3 max-w-[280px] sm:max-w-[320px] mx-auto mb-6">
-        <div class="text-[10px] text-pink-300 font-bold uppercase tracking-widest mb-1.5 flex items-center justify-center gap-1">
+      <div class="voice-bubble-card rounded-2xl p-3.5 max-w-[290px] sm:max-w-[330px] mx-auto mb-8">
+        <div class="text-[10px] text-purple-700 font-bold uppercase tracking-widest mb-2 flex items-center justify-center gap-1">
           <span>This is For You ✨</span>
         </div>
         <div class="flex items-center justify-between gap-2 px-1">
-          <button onclick="toggleVoicePlayer(3)" id="voice-btn-3" class="w-9 h-9 rounded-full bg-gradient-to-r from-teal-400 to-pink-500 text-slate-900 flex items-center justify-center font-bold shadow-md hover:scale-105 active:scale-95 transition">
+          <button onclick="toggleVoicePlayer(3)" id="voice-btn-3" class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-indigo-600 text-white flex items-center justify-center font-bold shadow-md hover:scale-105 active:scale-95 transition">
             <span id="voice-icon-3">▶</span>
           </button>
           <div class="flex items-center gap-1 h-5 flex-1 justify-center" id="wave-bars-3">
-            <span class="wave-bar h-2 w-1 bg-teal-300 rounded-full"></span>
-            <span class="wave-bar h-4 w-1 bg-pink-400 rounded-full"></span>
-            <span class="wave-bar h-5 w-1 bg-yellow-300 rounded-full"></span>
-            <span class="wave-bar h-3 w-1 bg-purple-400 rounded-full"></span>
-            <span class="wave-bar h-4 w-1 bg-teal-300 rounded-full"></span>
-            <span class="wave-bar h-2 w-1 bg-pink-400 rounded-full"></span>
+            <span class="wave-bar h-2 w-1 bg-indigo-500 rounded-full"></span>
+            <span class="wave-bar h-4 w-1 bg-purple-500 rounded-full"></span>
+            <span class="wave-bar h-5 w-1 bg-amber-500 rounded-full"></span>
+            <span class="wave-bar h-3 w-1 bg-indigo-500 rounded-full"></span>
+            <span class="wave-bar h-4 w-1 bg-purple-500 rounded-full"></span>
+            <span class="wave-bar h-2 w-1 bg-amber-500 rounded-full"></span>
           </div>
-          <span class="text-[10px] text-slate-300 font-mono" id="voice-time-3">00:00</span>
+          <span class="text-[10px] text-slate-700 font-mono font-bold" id="voice-time-3">00:00</span>
         </div>
       </div>
 
@@ -885,41 +991,41 @@
       </button>
     </section>
 
-    <!-- ================= STEP 4: CENTER MEMORY PHOTO GALLERY ================= -->
+    <!-- ================= STEP 4: CENTER MEMORY PHOTO GALLERY (WITH LIGHTBOX MODAL) ================= -->
     <section class="step-content w-full" id="step-4">
-      <p class="text-[10px] sm:text-xs uppercase tracking-[0.35em] text-teal-300/90 mb-1 font-semibold">Treasured Snapshots</p>
+      <p class="text-[10px] sm:text-xs uppercase tracking-[0.35em] text-teal-300 mb-1 font-bold">Treasured Snapshots</p>
       <h2 class="text-2xl sm:text-4xl font-bold text-dreamy mb-2 font-display">
         <span class="dynamic-name-text">Fahad</span>'s Memory Vault 📸
       </h2>
-      <p class="text-slate-300 text-xs max-w-md mx-auto mb-4">
-        Scroll horizontally inside the card below to browse our special photos.
+      <p class="text-slate-300 text-xs max-w-md mx-auto mb-5 font-medium">
+        Click any photo below to zoom & view in Full Screen!
       </p>
 
       <div class="memory-box-wrapper glass-panel border-teal-500/30 mb-6">
-        <div class="flex items-center justify-between mb-2 px-2 text-[11px] text-slate-400">
-          <span>◄ Swipe / Scroll Photos ►</span>
+        <div class="flex items-center justify-between mb-2 px-2 text-[11px] text-slate-300 font-semibold">
+          <span>◄ Click Photo To Open / Zoom ►</span>
           <span class="text-gold font-bold">GitHub Vault</span>
         </div>
 
         <div class="memory-scroll-wrapper" id="memory-scroll">
-          <div class="memory-card" style="transform: rotate(-2deg);">
-            <img id="img-A" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop" alt="Memory A" class="memory-img">
-            <p class="text-script text-xl text-gold mt-2 text-center">Under Our Stars</p>
+          <div class="memory-card" style="transform: rotate(-2deg);" onclick="openLightbox(0)">
+            <img id="img-A" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop" alt="Memory A" class="memory-img" onerror="this.src='https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop'">
+            <p class="text-script text-xl text-gold mt-2 text-center">Under Our Stars 🔍</p>
           </div>
 
-          <div class="memory-card" style="transform: rotate(2deg);">
-            <img id="img-B" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop" alt="Memory B" class="memory-img">
-            <p class="text-script text-xl text-teal-300 mt-2 text-center">Your Purest Laugh</p>
+          <div class="memory-card" style="transform: rotate(2deg);" onclick="openLightbox(1)">
+            <img id="img-B" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop" alt="Memory B" class="memory-img" onerror="this.src='https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop'">
+            <p class="text-script text-xl text-teal-300 mt-2 text-center">Your Purest Laugh 🔍</p>
           </div>
 
-          <div class="memory-card" style="transform: rotate(-3deg);">
-            <img id="img-C" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop" alt="Memory C" class="memory-img">
-            <p class="text-script text-xl text-purple-300 mt-2 text-center">Golden Hour Magic</p>
+          <div class="memory-card" style="transform: rotate(-3deg);" onclick="openLightbox(2)">
+            <img id="img-C" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop" alt="Memory C" class="memory-img" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop'">
+            <p class="text-script text-xl text-purple-300 mt-2 text-center">Golden Hour Magic 🔍</p>
           </div>
 
-          <div class="memory-card" style="transform: rotate(1deg);">
-            <img id="img-D" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop" alt="Memory D" class="memory-img">
-            <p class="text-script text-xl text-pink-300 mt-2 text-center">Always Bright</p>
+          <div class="memory-card" style="transform: rotate(1deg);" onclick="openLightbox(3)">
+            <img id="img-D" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop" alt="Memory D" class="memory-img" onerror="this.src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop'">
+            <p class="text-script text-xl text-pink-300 mt-2 text-center">Always Bright 🔍</p>
           </div>
         </div>
 
@@ -930,12 +1036,12 @@
       </div>
 
       <!-- Voice Message Card Bubble (Step 4) -->
-      <div class="voice-bubble-card rounded-2xl p-3 max-w-[280px] sm:max-w-[320px] mx-auto mb-6">
-        <div class="text-[10px] text-pink-300 font-bold uppercase tracking-widest mb-1.5 flex items-center justify-center gap-1">
+      <div class="voice-bubble-card rounded-2xl p-3.5 max-w-[290px] sm:max-w-[330px] mx-auto mb-8">
+        <div class="text-[10px] text-pink-300 font-bold uppercase tracking-widest mb-2 flex items-center justify-center gap-1">
           <span>This is For You ✨</span>
         </div>
         <div class="flex items-center justify-between gap-2 px-1">
-          <button onclick="toggleVoicePlayer(4)" id="voice-btn-4" class="w-9 h-9 rounded-full bg-gradient-to-r from-teal-400 to-pink-500 text-slate-900 flex items-center justify-center font-bold shadow-md hover:scale-105 active:scale-95 transition">
+          <button onclick="toggleVoicePlayer(4)" id="voice-btn-4" class="w-10 h-10 rounded-full bg-gradient-to-r from-teal-400 to-pink-500 text-slate-900 flex items-center justify-center font-bold shadow-md hover:scale-105 active:scale-95 transition">
             <span id="voice-icon-4">▶</span>
           </button>
           <div class="flex items-center gap-1 h-5 flex-1 justify-center" id="wave-bars-4">
@@ -946,7 +1052,7 @@
             <span class="wave-bar h-4 w-1 bg-teal-300 rounded-full"></span>
             <span class="wave-bar h-2 w-1 bg-pink-400 rounded-full"></span>
           </div>
-          <span class="text-[10px] text-slate-300 font-mono" id="voice-time-4">00:00</span>
+          <span class="text-[10px] text-slate-300 font-mono font-bold" id="voice-time-4">00:00</span>
         </div>
       </div>
 
@@ -963,12 +1069,12 @@
       </h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center text-left mb-6">
-        <div class="polaroid-frame max-w-[240px] mx-auto">
-          <img id="img-E" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=800&auto=format&fit=crop" class="w-full h-56 object-cover rounded-md mb-2" alt="Polaroid">
-          <p class="text-script text-2xl text-center text-slate-800"><span class="dynamic-name-text">Fahad</span> — My Favorite Chapter</p>
+        <div class="polaroid-frame max-w-[240px] mx-auto" onclick="openLightbox(4)">
+          <img id="img-E" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=800&auto=format&fit=crop" class="w-full h-56 object-cover rounded-md mb-2" alt="Polaroid" onerror="this.src='https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=800&auto=format&fit=crop'">
+          <p class="text-script text-2xl text-center text-slate-800"><span class="dynamic-name-text">Fahad</span> — My Favorite Chapter 🔍</p>
         </div>
 
-        <div class="space-y-4">
+        <div class="space-y-4 font-medium">
           <div class="relative pl-5 border-l-2 border-teal-400/40">
             <span class="absolute -left-[6px] top-1 w-2.5 h-2.5 rounded-full bg-teal-400 shadow-lg shadow-teal-400"></span>
             <h4 class="font-bold text-gold text-base">The First Hello</h4>
@@ -990,12 +1096,12 @@
       </div>
 
       <!-- Voice Message Card Bubble (Step 5) -->
-      <div class="voice-bubble-card rounded-2xl p-3 max-w-[280px] sm:max-w-[320px] mx-auto mb-6">
-        <div class="text-[10px] text-pink-300 font-bold uppercase tracking-widest mb-1.5 flex items-center justify-center gap-1">
+      <div class="voice-bubble-card rounded-2xl p-3.5 max-w-[290px] sm:max-w-[330px] mx-auto mb-8">
+        <div class="text-[10px] text-pink-300 font-bold uppercase tracking-widest mb-2 flex items-center justify-center gap-1">
           <span>This is For You ✨</span>
         </div>
         <div class="flex items-center justify-between gap-2 px-1">
-          <button onclick="toggleVoicePlayer(5)" id="voice-btn-5" class="w-9 h-9 rounded-full bg-gradient-to-r from-teal-400 to-pink-500 text-slate-900 flex items-center justify-center font-bold shadow-md hover:scale-105 active:scale-95 transition">
+          <button onclick="toggleVoicePlayer(5)" id="voice-btn-5" class="w-10 h-10 rounded-full bg-gradient-to-r from-teal-400 to-pink-500 text-slate-900 flex items-center justify-center font-bold shadow-md hover:scale-105 active:scale-95 transition">
             <span id="voice-icon-5">▶</span>
           </button>
           <div class="flex items-center gap-1 h-5 flex-1 justify-center" id="wave-bars-5">
@@ -1006,7 +1112,7 @@
             <span class="wave-bar h-4 w-1 bg-teal-300 rounded-full"></span>
             <span class="wave-bar h-2 w-1 bg-pink-400 rounded-full"></span>
           </div>
-          <span class="text-[10px] text-slate-300 font-mono" id="voice-time-5">00:00</span>
+          <span class="text-[10px] text-slate-300 font-mono font-bold" id="voice-time-5">00:00</span>
         </div>
       </div>
 
@@ -1029,12 +1135,12 @@
       </div>
 
       <!-- Voice Message Card Bubble (Step 6) -->
-      <div class="voice-bubble-card rounded-2xl p-3 max-w-[280px] sm:max-w-[320px] mx-auto mb-6">
-        <div class="text-[10px] text-pink-300 font-bold uppercase tracking-widest mb-1.5 flex items-center justify-center gap-1">
+      <div class="voice-bubble-card rounded-2xl p-3.5 max-w-[290px] sm:max-w-[330px] mx-auto mb-8">
+        <div class="text-[10px] text-pink-300 font-bold uppercase tracking-widest mb-2 flex items-center justify-center gap-1">
           <span>This is For You ✨</span>
         </div>
         <div class="flex items-center justify-between gap-2 px-1">
-          <button onclick="toggleVoicePlayer(6)" id="voice-btn-6" class="w-9 h-9 rounded-full bg-gradient-to-r from-teal-400 to-pink-500 text-slate-900 flex items-center justify-center font-bold shadow-md hover:scale-105 active:scale-95 transition">
+          <button onclick="toggleVoicePlayer(6)" id="voice-btn-6" class="w-10 h-10 rounded-full bg-gradient-to-r from-teal-400 to-pink-500 text-slate-900 flex items-center justify-center font-bold shadow-md hover:scale-105 active:scale-95 transition">
             <span id="voice-icon-6">▶</span>
           </button>
           <div class="flex items-center gap-1 h-5 flex-1 justify-center" id="wave-bars-6">
@@ -1045,7 +1151,7 @@
             <span class="wave-bar h-4 w-1 bg-teal-300 rounded-full"></span>
             <span class="wave-bar h-2 w-1 bg-pink-400 rounded-full"></span>
           </div>
-          <span class="text-[10px] text-slate-300 font-mono" id="voice-time-6">00:00</span>
+          <span class="text-[10px] text-slate-300 font-mono font-bold" id="voice-time-6">00:00</span>
         </div>
       </div>
 
@@ -1145,17 +1251,17 @@
       <h2 class="text-2xl sm:text-4xl font-bold text-gold mb-2 font-display" id="wish-title">
         Slide / Cut The Cake, <span class="dynamic-name-text">Fahad</span>! 
       </h2>
-      <p class="text-slate-300 text-xs sm:text-sm mb-5" id="wish-subtitle">
+      <p class="text-slate-300 text-xs sm:text-sm mb-5 font-medium" id="wish-subtitle">
         Slide across the cake or click below to slash it into cake plates!
       </p>
 
       <!-- Voice Message Card Bubble (Step 7) -->
-      <div class="voice-bubble-card rounded-2xl p-3 max-w-[280px] sm:max-w-[320px] mx-auto mb-6">
-        <div class="text-[10px] text-pink-300 font-bold uppercase tracking-widest mb-1.5 flex items-center justify-center gap-1">
+      <div class="voice-bubble-card rounded-2xl p-3.5 max-w-[290px] sm:max-w-[330px] mx-auto mb-8">
+        <div class="text-[10px] text-pink-300 font-bold uppercase tracking-widest mb-2 flex items-center justify-center gap-1">
           <span>This is For You ✨</span>
         </div>
         <div class="flex items-center justify-between gap-2 px-1">
-          <button onclick="toggleVoicePlayer(7)" id="voice-btn-7" class="w-9 h-9 rounded-full bg-gradient-to-r from-teal-400 to-pink-500 text-slate-900 flex items-center justify-center font-bold shadow-md hover:scale-105 active:scale-95 transition">
+          <button onclick="toggleVoicePlayer(7)" id="voice-btn-7" class="w-10 h-10 rounded-full bg-gradient-to-r from-teal-400 to-pink-500 text-slate-900 flex items-center justify-center font-bold shadow-md hover:scale-105 active:scale-95 transition">
             <span id="voice-icon-7">▶</span>
           </button>
           <div class="flex items-center gap-1 h-5 flex-1 justify-center" id="wave-bars-7">
@@ -1166,7 +1272,7 @@
             <span class="wave-bar h-4 w-1 bg-teal-300 rounded-full"></span>
             <span class="wave-bar h-2 w-1 bg-pink-400 rounded-full"></span>
           </div>
-          <span class="text-[10px] text-slate-300 font-mono" id="voice-time-7">00:00</span>
+          <span class="text-[10px] text-slate-300 font-mono font-bold" id="voice-time-7">00:00</span>
         </div>
       </div>
 
@@ -1195,6 +1301,32 @@
 
   </main>
 
+  <!-- ================= FULLSCREEN PHOTO LIGHTBOX MODAL ================= -->
+  <div id="photo-lightbox" class="lightbox-modal">
+    <div class="relative flex flex-col items-center">
+      <!-- Back / Close Button -->
+      <button onclick="closeLightbox()" class="absolute -top-12 right-0 bg-white/20 hover:bg-white/40 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl shadow-lg backdrop-blur-md border border-white/30 transition">
+        ✕
+      </button>
+      
+      <!-- Main Zoomed Photo -->
+      <div class="lightbox-content">
+        <img id="lightbox-img" src="" class="max-w-[88vw] max-h-[75vh] object-contain rounded-xl" alt="Zoomed Photo">
+      </div>
+
+      <!-- Photo Caption & Controls -->
+      <div class="mt-4 flex items-center gap-6">
+        <button onclick="navigateLightbox(-1)" class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full text-xs font-bold text-white backdrop-blur-md transition">
+          ◄ Previous
+        </button>
+        <span id="lightbox-caption" class="text-gold font-script text-2xl">Photo Caption</span>
+        <button onclick="navigateLightbox(1)" class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full text-xs font-bold text-white backdrop-blur-md transition">
+          Next ►
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- ================= JAVASCRIPT LOGIC ================= -->
   <script>
     // CONFIGURATION
@@ -1216,14 +1348,50 @@
       return `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}/${filename}`;
     }
 
+    // Photo Gallery Images Array
+    const galleryPhotos = [
+      { id: 'img-A', name: 'A.jpg', caption: 'Under Our Stars', fallback: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop' },
+      { id: 'img-B', name: 'B.jpg', caption: 'Your Purest Laugh', fallback: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop' },
+      { id: 'img-C', name: 'C.jpg', caption: 'Golden Hour Magic', fallback: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop' },
+      { id: 'img-D', name: 'D.jpg', caption: 'Always Bright', fallback: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop' },
+      { id: 'img-E', name: 'E.jpg', caption: 'My Favorite Chapter', fallback: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=800&auto=format&fit=crop' }
+    ];
+
+    let currentLightboxIdx = 0;
+
     function setupGithubPhotos() {
-      if (GITHUB_USER !== "username") {
-        document.getElementById('img-A').src = getGithubImageUrl('A.jpg');
-        document.getElementById('img-B').src = getGithubImageUrl('B.jpg');
-        document.getElementById('img-C').src = getGithubImageUrl('C.jpg');
-        document.getElementById('img-D').src = getGithubImageUrl('D.jpg');
-        document.getElementById('img-E').src = getGithubImageUrl('E.jpg');
-      }
+      galleryPhotos.forEach(p => {
+        const el = document.getElementById(p.id);
+        if (el) {
+          el.src = (GITHUB_USER !== "username") ? getGithubImageUrl(p.name) : p.fallback;
+        }
+      });
+    }
+
+    // LIGHTBOX MODAL SYSTEM (OPEN & BACK PHOTOS)
+    function openLightbox(index) {
+      currentLightboxIdx = index;
+      const modal = document.getElementById('photo-lightbox');
+      const img = document.getElementById('lightbox-img');
+      const caption = document.getElementById('lightbox-caption');
+
+      const photoObj = galleryPhotos[currentLightboxIdx];
+      const sourceEl = document.getElementById(photoObj.id);
+
+      img.src = sourceEl ? sourceEl.src : photoObj.fallback;
+      caption.innerText = photoObj.caption;
+
+      modal.classList.add('active');
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('photo-lightbox');
+      modal.classList.remove('active');
+    }
+
+    function navigateLightbox(direction) {
+      currentLightboxIdx = (currentLightboxIdx + direction + galleryPhotos.length) % galleryPhotos.length;
+      openLightbox(currentLightboxIdx);
     }
 
     // STATE MANAGEMENT
@@ -1243,10 +1411,10 @@
     ];
 
     // ================================================================
-    // 1. GITHUB BACKGROUND AUDIO (`voice.mp3` - LOOP)
+    // 1. GITHUB BACKGROUND AUDIO (`voice.mp3` - DIRECT RAW LINK & LOOP)
     // ================================================================
     let bgAudio = new Audio();
-    bgAudio.loop = true; // Loop audio indefinitely!
+    bgAudio.loop = true;
 
     function updateAudioSource() {
       bgAudio.src = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}/voice.mp3`;
@@ -1328,14 +1496,13 @@
       const btnIcon = document.getElementById(`voice-icon-${stepIdx}`);
       const waveContainer = document.getElementById(`wave-bars-${stepIdx}`);
 
-      // Stop any previously playing voice first
       if (activeVoiceIndex !== -1 && activeVoiceIndex !== stepIdx) {
         stopVoiceMessage(activeVoiceIndex);
       }
 
       if (audio.paused) {
         activeVoiceIndex = stepIdx;
-        lowerBackgroundMusicVolume(); // Duck background music
+        lowerBackgroundMusicVolume();
 
         audio.play().then(() => {
           if (btnIcon) btnIcon.innerText = "⏸";
@@ -1352,7 +1519,7 @@
       const audio = voiceAudios[stepIdx];
       if (audio) {
         audio.pause();
-        audio.currentTime = 0; // Reset to start
+        audio.currentTime = 0;
       }
 
       const btnIcon = document.getElementById(`voice-icon-${stepIdx}`);
@@ -1363,12 +1530,13 @@
 
       if (activeVoiceIndex === stepIdx) {
         activeVoiceIndex = -1;
-        restoreBackgroundMusicVolume(); // Restore background music
+        restoreBackgroundMusicVolume();
       }
     }
 
     // ================================================================
     // 3. CLEAR URDU VOICE ENGINE ("Happy Birthday Pyare Fahad")
+    // Executed on EVERY Next Button Click!
     // ================================================================
     function playUrduVoiceGreeting() {
       if (!('speechSynthesis' in window)) return;
@@ -1421,15 +1589,11 @@
     }
 
     function nextStep() {
-      // Stop voice message from previous step
       if (activeVoiceIndex !== -1) {
         stopVoiceMessage(activeVoiceIndex);
       }
 
-      // Trigger clear Urdu voice message on EVERY NEXT BUTTON click!
       playUrduVoiceGreeting();
-
-      // Start background MP3 audio from GitHub
       startBackgroundMusic();
 
       if (currentStep < TOTAL_STEPS - 1) {
@@ -1645,7 +1809,7 @@
       }
     }
 
-    // INITIALIZE
+    // INITIALIZE & AUTO-PLAY LISTENERS
     window.addEventListener('DOMContentLoaded', () => {
       applyDynamicName();
       createBalloons();
@@ -1660,4 +1824,4 @@
     });
   </script>
 </body>
-  </html>
+        </html>
