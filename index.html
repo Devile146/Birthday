@@ -472,6 +472,20 @@
       100% { opacity: 1; transform: perspective(800px) translateY(0) rotateX(0deg) scale(1); filter: blur(0); }
     }
 
+    /* LIGHTBOX MODAL & GRADIENT SMOKY BORDER */
+    .modal-img-frame {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-gold), var(--color-orchid), var(--color-rose));
+      background-size: 300% 300%;
+      animation: smoky-border-flow 6s ease infinite alternate;
+      box-shadow: 0 0 50px rgba(79, 214, 224, 0.5), 0 0 100px rgba(217, 128, 250, 0.3);
+    }
+
+    @keyframes smoky-border-flow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     /* CENTER MEMORY PHOTO GALLERY */
     .memory-box-wrapper {
       width: 100%;
@@ -501,6 +515,7 @@
       transition: all 0.5s ease;
       position: relative;
       overflow: hidden;
+      cursor: pointer;
     }
     @media (min-width: 640px) { .memory-card { flex: 0 0 290px; } }
 
@@ -528,6 +543,7 @@
       box-shadow: 0 25px 50px rgba(0,0,0,0.55);
       transform: rotate(-3deg);
       transition: all 0.5s ease;
+      cursor: pointer;
     }
     .polaroid-frame:hover { transform: rotate(0deg) scale(1.04); }
 
@@ -550,7 +566,9 @@
       to { transform: translateX(-50%); }
     }
 
-    /* PER-PAGE UNIQUE SLOW & DREAMY ENTRANCE ANIMATIONS (2.2s DURATIONS) */
+    /* ================================================================
+       PER-PAGE UNIQUE SLOW & DREAMY ENTRANCE ANIMATIONS (2.2s DURATIONS)
+       ================================================================ */
     .step-content {
       display: none;
       opacity: 0;
@@ -627,6 +645,19 @@
 
   <!-- Floating Balloons Container -->
   <div class="balloon-container" id="balloon-container"></div>
+
+  <!-- LIGHTBOX FULL-SIZE PHOTO MODAL WITH SMOKY GRADIENT BORDER -->
+  <div id="photo-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/85 backdrop-blur-md transition-all duration-500" onclick="closePhotoModal(event)">
+    <div class="relative max-w-3xl w-full flex flex-col items-center" onclick="event.stopPropagation()">
+      <!-- Close Button -->
+      <button onclick="closePhotoModal()" class="absolute -top-12 right-0 text-white text-3xl font-bold bg-white/10 hover:bg-white/20 w-10 h-10 rounded-full flex items-center justify-center transition border border-white/20">✕</button>
+      <!-- Image Wrapper with Smoky Gradient Border -->
+      <div class="modal-img-frame p-1.5 rounded-2xl">
+        <img id="modal-img-src" src="" alt="Full Photo" class="max-h-[75vh] w-auto max-w-full rounded-xl object-contain shadow-2xl">
+      </div>
+      <p id="modal-caption" class="text-script text-2xl sm:text-3xl text-gold mt-4 text-center"></p>
+    </div>
+  </div>
 
   <!-- HEADER / CELESTIAL GLASS STATUS BADGE -->
   <header class="fixed top-4 left-0 right-0 z-50 px-3">
@@ -776,34 +807,34 @@
         <span class="dynamic-name-text">Fahad</span>'s Memory Vault 📸
       </h2>
       <p class="text-slate-300 text-xs max-w-md mx-auto mb-5">
-        Scroll horizontally inside the card below to browse our special photos.
+        Scroll & tap any photo to open full-size view!
       </p>
 
       <div class="memory-box-wrapper glass-panel border-teal-500/30 mb-6">
         <div class="flex items-center justify-between mb-2 px-2 text-[11px] text-slate-400">
-          <span>◄ Swipe / Scroll Photos ►</span>
+          <span>◄ Swipe / Click Photo to Expand ►</span>
           <span class="text-gold font-bold">GitHub Vault</span>
         </div>
 
         <div class="memory-scroll-wrapper" id="memory-scroll">
-          <div class="memory-card" style="transform: rotate(-2deg);">
+          <div class="memory-card" style="transform: rotate(-2deg);" onclick="openPhotoModal(document.getElementById('img-A').src, 'Under Our Stars')">
             <img id="img-A" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop" alt="Memory A" class="memory-img">
-            <p class="text-script text-xl text-gold mt-2 text-center">Under Our Stars</p>
+            <p class="text-script text-xl text-gold mt-2 text-center">Under Our Stars 🔍</p>
           </div>
 
-          <div class="memory-card" style="transform: rotate(2deg);">
+          <div class="memory-card" style="transform: rotate(2deg);" onclick="openPhotoModal(document.getElementById('img-B').src, 'Your Purest Laugh')">
             <img id="img-B" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop" alt="Memory B" class="memory-img">
-            <p class="text-script text-xl text-teal-300 mt-2 text-center">Your Purest Laugh</p>
+            <p class="text-script text-xl text-teal-300 mt-2 text-center">Your Purest Laugh 🔍</p>
           </div>
 
-          <div class="memory-card" style="transform: rotate(-3deg);">
+          <div class="memory-card" style="transform: rotate(-3deg);" onclick="openPhotoModal(document.getElementById('img-C').src, 'Golden Hour Magic')">
             <img id="img-C" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop" alt="Memory C" class="memory-img">
-            <p class="text-script text-xl text-purple-300 mt-2 text-center">Golden Hour Magic</p>
+            <p class="text-script text-xl text-purple-300 mt-2 text-center">Golden Hour Magic 🔍</p>
           </div>
 
-          <div class="memory-card" style="transform: rotate(1deg);">
+          <div class="memory-card" style="transform: rotate(1deg);" onclick="openPhotoModal(document.getElementById('img-D').src, 'Always Bright')">
             <img id="img-D" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop" alt="Memory D" class="memory-img">
-            <p class="text-script text-xl text-pink-300 mt-2 text-center">Always Bright</p>
+            <p class="text-script text-xl text-pink-300 mt-2 text-center">Always Bright 🔍</p>
           </div>
         </div>
 
@@ -819,16 +850,17 @@
       </button>
     </section>
 
-    <!-- ================= STEP 5: JOURNEY & POLAROID ================= -->
+    <!-- ================= STEP 5: JOURNEY & POLAROID (E.jpg) ================= -->
     <section class="step-content w-full max-w-2xl" id="step-5">
       <h2 class="text-2xl sm:text-4xl font-bold text-dreamy mb-6 font-display">
         The Journey of Us
       </h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center text-left">
-        <div class="polaroid-frame max-w-[240px] mx-auto">
-          <img id="img-E" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=800&auto=format&fit=crop" class="w-full h-56 object-cover rounded-md mb-2" alt="Polaroid">
-          <p class="text-script text-2xl text-center text-slate-800"><span class="dynamic-name-text">Fahad</span> — My Favorite Chapter</p>
+        <!-- Polaroid Frame (Clickable for Full Size E.jpg) -->
+        <div class="polaroid-frame max-w-[240px] mx-auto" onclick="openPhotoModal(document.getElementById('img-E').src, 'Fahad — My Favorite Chapter')">
+          <img id="img-E" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=800&auto=format&fit=crop" class="w-full h-56 object-cover rounded-md mb-2" alt="Journey Polaroid E.jpg">
+          <p class="text-script text-2xl text-center text-slate-800"><span class="dynamic-name-text">Fahad</span> — My Favorite Chapter 🔍</p>
         </div>
 
         <div class="space-y-4">
@@ -1017,13 +1049,30 @@
     }
 
     function setupGithubPhotos() {
-      if (GITHUB_USER !== "username") {
-        document.getElementById('img-A').src = getGithubImageUrl('A.jpg');
-        document.getElementById('img-B').src = getGithubImageUrl('B.jpg');
-        document.getElementById('img-C').src = getGithubImageUrl('C.jpg');
-        document.getElementById('img-D').src = getGithubImageUrl('D.jpg');
-        document.getElementById('img-E').src = getGithubImageUrl('E.jpg');
-      }
+      document.getElementById('img-A').src = getGithubImageUrl('A.jpg');
+      document.getElementById('img-B').src = getGithubImageUrl('B.jpg');
+      document.getElementById('img-C').src = getGithubImageUrl('C.jpg');
+      document.getElementById('img-D').src = getGithubImageUrl('D.jpg');
+      document.getElementById('img-E').src = getGithubImageUrl('E.jpg');
+    }
+
+    // LIGHTBOX PHOTO MODAL LOGIC
+    function openPhotoModal(imgSrc, caption) {
+      const modal = document.getElementById('photo-modal');
+      const modalImg = document.getElementById('modal-img-src');
+      const modalCap = document.getElementById('modal-caption');
+      
+      modalImg.src = imgSrc;
+      modalCap.innerText = caption || '';
+      
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closePhotoModal(e) {
+      const modal = document.getElementById('photo-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
     }
 
     // STATE MANAGEMENT
@@ -1044,9 +1093,10 @@
 
     // ================================================================
     // 1. GITHUB BACKGROUND AUDIO (`voice.mp3` - DIRECT RAW LINK & LOOP)
+    // Automatic Background Song Start On Open!
     // ================================================================
     let bgAudio = new Audio();
-    bgAudio.loop = true; // Loop indefinitely!
+    bgAudio.loop = true; // Infinite repeat loop!
 
     function updateAudioSource() {
       bgAudio.src = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}/voice.mp3`;
@@ -1090,7 +1140,7 @@
         const textToSpeak = `Happy Birthday, Pyaare ${PERSON_NAME}!`;
         const utterance = new SpeechSynthesisUtterance(textToSpeak);
 
-        // Slow & crystal clear articulation (0.68)!
+        // Ultra-clear slow rate (0.68) for crystal clear speech articulation!
         utterance.rate = 0.68;
         utterance.pitch = 1.0;
         utterance.volume = 1.0;
@@ -1133,7 +1183,7 @@
     }
 
     function nextStep() {
-      // Trigger clear voice message on EVERY NEXT BUTTON click!
+      // Trigger voice message on EVERY NEXT BUTTON click!
       playUrduVoiceGreeting();
 
       // Start background MP3 audio from GitHub
@@ -1357,7 +1407,7 @@
       }
     }
 
-    // INITIALIZE & AUTO-PLAY LISTENERS
+    // AUTO-START AUDIO & INITIALIZE
     window.addEventListener('DOMContentLoaded', () => {
       applyDynamicName();
       createBalloons();
@@ -1365,10 +1415,16 @@
       attachCakeTouchListener();
       updateAudioSource();
 
+      // Auto start music on open / initial interaction
+      startBackgroundMusic();
+      ['click', 'touchstart', 'scroll', 'mousemove'].forEach(evt => {
+        window.addEventListener(evt, startBackgroundMusic, { once: true });
+      });
+
       if ('speechSynthesis' in window) {
         window.speechSynthesis.onvoiceschanged = () => {};
       }
     });
   </script>
 </body>
-</html>
+  </html>
